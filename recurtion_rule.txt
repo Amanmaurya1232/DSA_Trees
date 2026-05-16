@@ -1,0 +1,187 @@
+# General Recursion Rule (Full Revision Notes)
+
+## Main Rule:
+
+**Jab bhi recursive call hota hai, function dobara start se run hota hai.**
+
+---
+
+# Yaad Rakho:
+
+* Function top se start hota hai
+* Same code firse execute hota hai
+* New parameter/value use hota hai
+* Previous call pause hota hai
+* New call complete hota hai
+* Fir previous call continue hota hai
+
+---
+
+# Simple Formula:
+
+## Recursion = Same Function + New Input + Full Re-run
+
+---
+
+# Important:
+
+### Har recursive call ek fresh function execution hota hai.
+
+---
+
+# Example:
+
+```python id="hyqj7o"
+def demo(n):
+    if n == 0:
+        return
+
+    print("Start", n)
+    demo(n-1)
+    print("End", n)
+```
+
+---
+
+## Call:
+
+```python id="x5n8qp"
+demo(3)
+```
+
+---
+
+# Step-by-Step Execution:
+
+## First Call:
+
+```python id="a7m2zk"
+demo(3)
+```
+
+Output:
+
+```python id="g3v9lt"
+Start 3
+```
+
+Calls:
+
+```python id="k8x4rn"
+demo(2)
+```
+
+---
+
+## Second Call:
+
+```python id="d5p1qw"
+demo(2)
+```
+
+Output:
+
+```python id="j7n6mv"
+Start 2
+```
+
+Calls:
+
+```python id="u4x8tp"
+demo(1)
+```
+
+---
+
+## Third Call:
+
+```python id="r2m7zk"
+demo(1)
+```
+
+Output:
+
+```python id="f9q3vl"
+Start 1
+```
+
+Calls:
+
+```python id="w6x2pn"
+demo(0)
+```
+
+---
+
+## Base Case:
+
+```python id="c8v5yt"
+n == 0
+return
+```
+
+Stops recursion.
+
+---
+
+# Returning Phase:
+
+Now function reverse order me continue karega:
+
+```python id="m3q7lx"
+End 1
+End 2
+End 3
+```
+
+---
+
+# Final Output:
+
+```python id="v8n4kp"
+Start 3
+Start 2
+Start 1
+End 1
+End 2
+End 3
+```
+
+---
+
+# Visualization:
+
+```python id="x2p9wr"
+demo(3)
+ └── demo(2)
+      └── demo(1)
+           └── demo(0)
+```
+
+Return:
+
+```python id="j4v8tn"
+demo(1)
+demo(2)
+demo(3)
+```
+
+---
+
+# Memory Trick:
+
+## “Recursion goes deep first, then returns step by step.”
+
+---
+
+# Key Understanding:
+
+* Recursive call = function restart
+* Base case = stopping point
+* Return phase = reverse execution
+
+---
+
+# Final Reminder:
+
+**Recursion me function baar-baar poora run hota hai jab tak base condition stop na kare.**
